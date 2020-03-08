@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lämpötilamuunnin</h1>
+    <a href="index.html">Fahrenheit Celsiukseksi</a>
+
+    <p>
+    <label>Celsius</label>
+    <input id="inputCelsius" type="number" placeholder="Celsius"
+    oninput= "temparetureConverterC(this.value)"
+    onchange="temparetureConverterC(this.value)">
+    </p>
+
+
+    <p>Fahrenheit <span id="outputFahrenheit"></span></p>
+
+
+    <script>
+        function temparetureConverterC(valNum){
+            valNum = parseFloat(valNum);
+            document.getElementById("outputFahrenheit").innerHTML = (valNum*1.8) + 32
+        }
+    </script>
+
+</body>
+</html>
