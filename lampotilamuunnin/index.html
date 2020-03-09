@@ -7,21 +7,35 @@
 </head>
 <body>
     <h1>Lämpötilamuunnin</h1>
-    <a href="celsiusToFahrenheit.html">Celsius Fahrenheitiksi</a>
 
     <p>
     <label>Fahrenheit</label>
     <input id="inputFahrenheit" type="number" placeholder="Fahrenheit"
-    oninput= "temparetureConverter(this.value)"
-    onchange="temparetureConverter(this.value)">
+    oninput= "temparetureConverterCelsius(this.value)"
+    onchange="temparetureConverterCelsius(this.value)">
     </p>
 
     <p>Celsius <span id="outputCelsius"></span></p>
 
+
+    <p>
+    <label>Celsius</label>
+    <input id="inputCelsius" type="number" placeholder="Celsius"
+    oninput= "temparetureConverterFahrenheit(this.value)"
+    onchange="temparetureConverterFahrenheit(this.value)">
+    </p>
+    
+    <p>Fahrenheit <span id="outputFahrenheit"></span></p>
+
     <script>
-        function temparetureConverter(valNum){
+        function temparetureConverterCelsius(valNum){
             valNum = parseFloat(valNum);
             document.getElementById("outputCelsius").innerHTML = (valNum-32) / 1.8
+        }
+
+        function temparetureConverterFahrenheit(valNum){
+            valNum = parseFloat(valNum);
+            document.getElementById("outputFahrenheit").innerHTML = (valNum*1.8) + 32
         }
     </script>
 
