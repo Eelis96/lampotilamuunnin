@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lampotilamuunnin</title>
+    <style>
+        h1  {
+    -webkit-animation: color-change 0.3s infinite;
+    -moz-animation: color-change 0.3s infinite;
+    -o-animation: color-change 0.3s infinite;
+    -ms-animation: color-change 0.3s infinite;
+    animation: color-change 0.3s infinite;
+    }
+
+    -webkit-keyframes color-change {
+        10% { color: red; }
+        30% { color: blue; }
+        50% { color: yellow; }
+        70% { color: green; }
+        90% { color: orange; }
+    }
+    @-moz-keyframes color-change {
+        10% { color: red; }
+        30% { color: blue; }
+        50% { color: yellow; }
+        70% { color: green; }
+        90% { color: orange; }
+    }
+    @-ms-keyframes color-change {
+        10% { color: red; }
+        30% { color: blue; }
+        50% { color: yellow; }
+        70% { color: green; }
+        90% { color: orange; }
+    }
+    @-o-keyframes color-change {
+        10% { color: red; }
+        30% { color: blue; }
+        50% { color: yellow; }
+        70% { color: green; }
+        90% { color: orange; }
+    }
+    @keyframes color-change {
+        10% { color: red; }
+        30% { color: blue; }
+        50% { color: yellow; }
+        70% { color: green; }
+        90% { color: orange; }
+    }
+
+
+
+
+    </style>
+
+</head>
+<body>
+    <h1>Eeliksen erinomainen Lämpötilamuunnin</h1>
+    <form name="tempForm">
+      <select id="scale">
+        <option value="cf">Celsius-> Fahrenheit</option>
+        <option value="fc">Fahrenheit-> Celsius</option>
+        <option value="kc">Kelvin-> Celsius</option>
+        <option value="ck">Celsius-> Kelvin</option>
+        <option value="fk">Fahrenheit-> Kelvin</option>
+        <option value="kf">Kelvin-> Fahrenheit</option>
+      </select><br/>
+      Syötä Lämpötila:<br/>
+         <input id="temp" type="text" name="number" value="">
+         <input type="button" onclick="myFunction()" value="Muunna"><br/>
+
+        <input type="radio" name="round" value="10" checked> 1 desimaali<br>
+        <input type="radio" name="round" value="100"> 2 desimaali<br>
+        <input type="radio" name="round" value="1000"> 3 desimaali<br><br>
+      </form> 
+      <p id="demo"></p>
+
+  <script>
+  function myFunction() {
+    var scale = document.getElementById("scale").value;
+    var round = document.forms['tempForm']['round'].value;
+    var temp = document.getElementById("temp").value;
+
+    if(scale == "fc") {
+      var tulos = (temp - 32) / 1.8;
+    } else if (scale == "cf") {
+      var tulos = (temp) * 1.8 + 32;
+    } else if (scale == "kc") {
+      var tulos = (temp) - 273.15;
+    } else if (scale == "ck") {
+      var tulos = (temp) + 273.15;
+    } else if (scale == "fk") {
+      var tulos = (temp + 459.67) / 1.8;
+    } else if (scale == "kf") {
+      var tulos = (temp) * 1.8 - 459.67;
+    }
+    tulos = Math.round(tulos * round) / round;
+
+    document.getElementById("demo").innerHTML = tulos;
+  }
+  </script>
+</body>
+</html>
